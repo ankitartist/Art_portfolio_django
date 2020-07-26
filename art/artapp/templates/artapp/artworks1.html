@@ -1,0 +1,15 @@
+{% extends "artapp/base.html" %}
+{%block body_block %}
+<br><br>
+
+<h2 class="h1" style="text-align:center">Artworks</h2><br>
+<h4 class="h3"style="text-align:center">Upload here </h4>
+<div class="reg1">
+<form method='POST' enctype="multipart/form-data">
+{%csrf_token%}
+{{af.as_p}}
+{{artwork_form.as_p}} 
+<input type="submit" value="Upload">
+</form>
+</div>
+{%endblock%}

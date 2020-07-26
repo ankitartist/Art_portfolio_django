@@ -1,0 +1,43 @@
+{%load static %}
+<html>
+
+<head><title></title> <link rel="stylesheet" href="{%static 'css/design.css'%}"> </head>
+<body id="bg" style="background-image: url('{%static "images/d.jpg"%}')";>
+
+<ul>
+
+{% if pic %}
+{% for i in pic%}
+<a href="{%url 'artapp:more1' user.id%}">
+<li>
+<img style=" width:50px; height:50px; border-radius:50%; border:solid 3px grey; margin-right:-160px;" class="profile" src="{{i.ppic.url}}" alt="sorry" width=150px height=100px;/>
+</a></li>
+{%endfor%}
+{%endif%}
+
+
+{% if user.is_authenticated %}
+
+<li style="margin:10px; margin-left: 110px;"><a href="{%url 'artapp:profile'%}">Profile</a></li>
+<li style="margin:10px"><a href="{%url 'artapp:artworks1' user.id%}">Upload Art</a></li>
+<li style="margin:10px"><a href="{%url 'artapp:viewart'%}">My Artworks</a></li>
+<li style="margin:10px; margin-right:0px;"><a href="{%url 'artapp:portfolio'%}">Portfolio</a><li>
+<li style="margin:10px"><a href="{%url 'artapp:viewall'%}">All Artworks</a></li>
+<li style="margin:10px; margin-left:500px;"><a href="{%url 'logout'%}">Logout</a></li>
+
+
+{%else%}
+<li style="margin:10px"> <a href="{%url 'index'%}"> Homepage </a></li>
+<li style="margin:10px"><a href="{%url 'artapp:user_login'%}">Login</a></li>
+<li style="margin:10px"><a href="{%url 'admin:index'%}">Admin</a> </li>
+<li style="margin:10px"><a href="{%url 'artapp:register'%}">Register</a></li>
+<li style="margin:10px"><a href="{%url 'artapp:viewall'%}">All Artworks</a></li>
+{%endif%}
+
+
+
+</ul>
+{% block body_block%}
+{% endblock %}
+</body>
+</html>

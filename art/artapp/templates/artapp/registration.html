@@ -1,0 +1,19 @@
+{%extends "artapp/base.html"%}
+{%block body_block%}
+<div class="h1">
+<h1> Registeration page </h1></div>
+{% if registered %}
+<h2> Thank You</h2>
+{%else%}
+<div class="h3"><h3> Register Here</h3></div>
+<div class="reg">
+<br>
+<form method='POST' enctype="multipart/form-data">
+{%csrf_token%}
+{{user_form.as_p}}
+{{profile_form.as_p}}
+<input type="submit" value="Register">
+</form>
+</div>
+{%endif%}
+{%endblock%}

@@ -1,0 +1,61 @@
+{% extends "artapp/base.html" %}
+{%block body_block %}
+<br><br>
+<div class="reg" style="height:930px; width:1100px; margin-left:150px; background-color:grey;">
+{% if pic2 %}
+{% for i in pic2%}
+<a href="{%url 'artapp:more2' user.id%}">
+<img style=" margin-top:10px; height:300px; width:950px; object-fit:contain; margin-left:30px; border:solid 2px white; border-radius:5px; " class="profile" src="{{i.coverphoto.url}}" alt="sorry" width=150px height=100px;/>
+</a>
+{%endfor%}
+{%endif%}
+<div style="width:100px; height:20px; background-color:white; border-radius:10px; margin-top:-40px;">
+<p><a href="{%url 'artapp:more2' user.id%}">Cover</a></p></div>
+<div class="reg"  style="height:600px; margin-left:240px; margin-top:-30px;">
+
+{% if pic %}
+{% for i in pic%}
+<a href="{%url 'artapp:more1' user.id%}">
+<img style="margin-left:198px; height:150px; width:140px; object-fit:contain; border-radius:50%; border:solid 3px grey; margin-top:-90px; opacity:1;" class="profile" src="{{i.ppic.url}}" alt="sorry" width=150px height=100px;/>
+
+</a>
+
+{%endfor%}
+{%endif%}
+
+<a href="{%url 'artapp:more1' user.id%}"><p style= "margin-left:230px">Profile Pic</a></p>
+<div class="reg1" style="margin-left:0px; height:170px;background-color:lightblue">
+<a href="{%url 'artapp:details' user.id%}">Edit Details</a>
+<p> First name       :{{user.first_name}}</p><p> Last name       :{{user.last_name}}</p>
+<p> Username       :{{user}}</p>
+<p>email       :{{user.email}}</p>
+</div>
+{%if temp%}
+{%for i in temp%}
+{%if i.age%}
+<p> Age : {{i.age}}</p>
+{%endif%}
+{%if i.Dob%} 
+<p> Dob :  {{i.Dob}}</p>
+{%endif%}
+{%if i.about%}
+<p> About :  {{i.about}}</p>
+{%endif%}
+{%if i.link%}
+<div class="reg1" style="margin-left:0px; height:120px;background-color:lightblue">
+<p> Links to other profiles:</p>
+<a href={{i.link}}>
+<p style="font-size:14px;">{{i.link}}</p></a>
+{%endif%}
+{%if i.link1%} 
+<a href={{i.link1}}>
+<p style="font-size:14px;">{{i.link1}}</p></a>
+{%endif%}
+</div>
+{%endfor%}
+{%endif%}
+
+
+</div></div>
+{%endblock%}
+

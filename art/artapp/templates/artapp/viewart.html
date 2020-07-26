@@ -1,0 +1,10 @@
+{% extends "artapp/base.html" %}
+{%block body_block %}
+<br><br>
+<h1 class="h1" style="text-align:center">My Arts </h1>
+<h4 class="h3" style="text-align:center">(click any image to go to profile)</h1>
+<div class="reg2">
+{% if artwork %}
+{%for i in artwork%}
+<a href="{%url 'artapp:profile'%}"><img src="{{i.art.url}}" alt="sorry" width=150px height=100px;/>{%endfor%}{%endif%}</div>
+{%endblock%}

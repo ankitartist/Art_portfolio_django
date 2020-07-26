@@ -1,0 +1,12 @@
+{% extends "artapp/base.html" %}
+{%block body_block %}
+<br><br>
+<h1 class="h1" style="text-align:center; ">All Artworks Uploaded Yet </h1>
+<h4 class="h3" style="text-align:center;">sorted datewise (newest at bottom)</h4>
+<div class="reg2" style="background-color:grey; opacity:0.9;">
+{% if artwork %}
+{%for i in artwork%}
+<img class="no_hover" src="{{i.art.url}}" alt="sorry" width=150px height=100px;/>
+@{{i.user1}}
+{%endfor%}{%endif%}</div>
+{%endblock%}
